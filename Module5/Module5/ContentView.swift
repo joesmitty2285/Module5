@@ -1,24 +1,18 @@
-//
-//  ContentView.swift
-//  Module5
-//
-//  Created by Joseph Smith on 6/15/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        AdventureView(viewModel: AdventureViewModel())
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+            .previewDevice("iPhone 12")
+        
+        ContentView()
+            .previewDevice("iPad Pro (11-inch)")
+            .previewInterfaceOrientation(.landscapeLeft)
+    }
 }
