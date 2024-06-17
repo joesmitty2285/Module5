@@ -6,22 +6,44 @@ struct AdventureView: View {
     
     var body: some View {
         VStack {
+            
+            Spacer()
             Text(viewModel.currentStep.description)
                 .font(.title)
                 .padding()
             
-            ForEach(viewModel.currentStep.choices, id: \.text) { choice in
-                Button(action: {
-                    viewModel.choose(choice: choice)
-                }) {
-                    Text(choice.text)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .padding(5)
+            HStack {
+                ForEach(viewModel.currentStep.choices, id: \.text) { choice in
+                    Button(action: {
+                        viewModel.choose(choice: choice)
+                    }) {
+                        Text(choice.text)
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .padding(5)
                 }
             }
+            
+            Spacer()
+            
+            // Restart Button
+            Button(action: {
+                viewModel.restart()
+            }) {
+                Text("Restart")
+                    .padding()
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(PlainButtonStyle())
+            .padding(5)
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)

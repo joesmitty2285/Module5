@@ -9,10 +9,11 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewDevice("iPhone 12")
-        
+            .previewDevice("iPhone 15")
         ContentView()
             .previewDevice("iPad Pro (11-inch)")
             .previewInterfaceOrientation(.landscapeLeft)
+        
+        
     }
 }
